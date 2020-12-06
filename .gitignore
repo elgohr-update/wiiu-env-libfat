@@ -13,3 +13,5 @@ gba/include
 libogc/include
 nds/include
 gp2x/include
+wiiu/wiiu_release
+wiiu/lib

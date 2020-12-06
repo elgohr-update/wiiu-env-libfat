@@ -52,6 +52,8 @@ extern "C" {
 #else
 #  ifdef NDS
 #    include <nds/disc_io.h>
+#  elif defined(__WIIU__)
+#    include <iosuhax_disc_interface.h>
 #  else
 #    include <disc_io.h>
 #  endif

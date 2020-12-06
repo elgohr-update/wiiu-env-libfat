@@ -55,6 +55,12 @@
 #elif defined(GP2X)
   #include <gp2xtypes.h>
   #include <disc_io.h>
+#elif defined(__WIIU__)
+  #include <iosuhax_disc_interface.h>
+  typedef uint8_t u8;
+  typedef uint16_t u16;
+  typedef int32_t s32;
+  typedef uint32_t u32;
 #endif
 
 // Platform specific options
@@ -79,6 +85,9 @@
 #elif defined (GP2X)
   #define DEFAULT_CACHE_PAGES 16
   #define DEFAULT_SECTORS_PAGE 8
+#elif defined (__WIIU__)
+  #define DEFAULT_CACHE_PAGES 4
+  #define DEFAULT_SECTORS_PAGE 64
 #endif
 
 #endif // _COMMON_H

@@ -31,6 +31,9 @@ cube-release: include/libfatversion.h
 
 wii-release: include/libfatversion.h
 	$(MAKE) -C libogc PLATFORM=wii BUILD=wii_release
+    
+wiiu-release: include/libfatversion.h
+	$(MAKE) -C wiiu BUILD=wiiu_release
 
 gp2x-release: include/libfatversion.h
 	$(MAKE) -C gp2x PLATFORM=gp2x BUILD=gp2x_release	
@@ -50,6 +53,9 @@ cube-debug: include/libfatversion.h
 
 wii-debug: include/libfatversion.h
 	$(MAKE) -C libogc PLATFORM=wii BUILD=cube_debug
+    
+wiiu-debug: include/libfatversion.h
+	$(MAKE) -C wiiu BUILD=wiiu_debug
 
 gp2x-debug: include/libfatversion.h
 	$(MAKE) -C gp2x BUILD=debug
@@ -67,6 +73,9 @@ ogc-clean:
 
 gp2x-clean:
 	$(MAKE) -C gp2x clean
+    
+wiiu-clean:
+	$(MAKE) -C wiiu clean
 
 dist-bin: nds-dist-bin gba-dist-bin ogc-dist-bin gp2x-dist-bin
 
@@ -120,3 +129,6 @@ ogc-install: cube-release wii-release
 
 gp2x-install: gp2x-release
 	$(MAKE) -C gp2x install
+    
+wiiu-install: wiiu-release
+	$(MAKE) -C wiiu install

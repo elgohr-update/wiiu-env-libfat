@@ -38,8 +38,25 @@ is available, wrapper functions are used.
 The list is terminated by a NULL/NULL entry.
 */
 
+/* ====================== Wii U ====================== */
+#if   defined (__WIIU__)
+#include <iosuhax_disc_interface.h>
+
+static const DISC_INTERFACE* get_io_wiiu_sd (void) {
+	return &IOSUHAX_sdio_disc_interface;
+}
+
+static const DISC_INTERFACE* get_io_wiiu_usb (void) {
+	return &IOSUHAX_usb_disc_interface;
+}
+
+const INTERFACE_ID _FAT_disc_interfaces[] = {
+	{"sd", get_io_wiiu_sd},
+	{"usb", get_io_wiiu_usb},
+	{NULL, NULL}
+};
 /* ====================== Wii ====================== */
-#if   defined (__wii__)
+#elif   defined (__wii__)
 #include <sdcard/wiisd_io.h>
 #include <ogc/usbstorage.h>
 #include <sdcard/gcsd.h>
